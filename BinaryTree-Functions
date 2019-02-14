@@ -278,12 +278,132 @@ public static int Sum(BinNode<Integer> head)
 		}
 	}
 
+  	public static void build(BinNode<Integer> st, int count)
+	{
+		int val=count;
+		if(count>0) 
+		{
+			st.setLeft(new BinNode<Integer> (rnd.nextInt((10)+1)));
+			build(st.getLeft(),--val);
+			st.setRight(new BinNode<Integer> (rnd.nextInt((10)+1)));
+			build(st.getRight(),--count);
+		}
+	}
+
+  	public static boolean full(BinNode<Integer> st, int count, int depth) {
+		
+		boolean fromL=false, fromR=false;
+		int value=count;
+		
+		if(st.hasLeft()&&!st.hasRight()||!st.hasLeft()&&st.hasRight()) 
+		{
+			return false;
+		}
+		if(st.hasLeft()) 
+		{
+			fromL=full(st.getLeft(),++count,depth);
+		}
+		if(st.hasRight()) 
+		{
+			fromR=full(st.getRight(),++value,depth);
+		}
+		if(count==depth) 
+		{
+			System.out.println(st.getValue()+" , "+count +" "+depth);
+			return true;
+		}
+		
+		return fromL&&fromR;
+	}
+	public static int biggest(BinNode<Integer> st) 
+	{
+		int l = 0, r = 0;
+		if (st.hasLeft()) 
+		{
+			l = biggest(st.getLeft());
+		}
+		
+		if (st.hasRight()) 
+		{
+			r = biggest(st.getRight());
+		}
+		return Math.max(st.getValue(), Math.max(l, r));
+
+	}
+	
+	public static boolean similar (BinNode<Integer>a ,BinNode<Integer>b) 
+	{
+		boolean L = true;
+		boolean R = true;
+		if(a==null&&b!=null||a!=null&&b==null) 
+		{
+			return false;
+		}
+		
+		if(a!=null&&b!=null)
+		{
+			if(a.getValue()!=b.getValue()) 
+			{
+				return false;}
+			}
+			if(a.hasLeft()&&b.hasLeft()) 
+			{
+				L=similar(a.getLeft(),b.getLeft());
+			}
+			if(a.hasRight()&&b.hasRight()) 
+			{
+				R=similar(a.getRight(),b.getRight());
+			}
+		return L&&R;
+		}
   
   
-  
-  
-  
-  
+  	public static int sumLevel(BinNode<Integer> st, int num) 
+	{
+		int n = num;
+		int L=0;
+		int R=0;
+		if(num==0) 
+		{
+			return st.getValue();
+		}
+		
+		if(st.hasLeft()&&num>0) 
+		{
+			L=sumLevel(st.getLeft(),--num);
+		}
+		
+		if(st.hasRight()&&n>0) 
+		{
+			R=sumLevel(st.getRight(),--n);
+		}
+	return R+L;
+	}
+
+  `	public static boolean isLeftBalancedRight(BinNode<Integer> root
+		BinNode<Integer> right = root;
+		BinNode<Integer> left = root;
+		while (right.hasRight() && left.hasLeft()) 
+		{
+			if (right.getValue() != left.getValue()) 
+			{
+				return false;
+			}
+			right = right.getRight();
+			left = left.getLeft();
+		}
+		if (right.getValue() != left.getValue()) 
+		{
+			return false;
+		}
+		if (right.hasRight() || left.hasLeft()) 
+		{
+			return false;
+		}
+		
+		return true;
+	}
+
   
   
   
