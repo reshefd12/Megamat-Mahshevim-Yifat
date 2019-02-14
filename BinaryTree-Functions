@@ -35,6 +35,8 @@
 	}
 
 
+טענת כניסה: הפונקציה מקבלת עץ בינארי ואת הערך של איבר הראש
+טענת יציאה: מחזירה boolean אם יש סדרה חשבונית עולה באחד מראש העץ עד העלה
 
   public static boolean foseries(BinNode<Integer> bt,int prev)
 	{
@@ -60,6 +62,10 @@
 		
 	}
   
+  
+  טענת כניסה: הפונקציה מקבלת עץ בינארי
+טענת יציאה: הפונקציה מדפיסה את העץ לפי רמות
+
   public static void printByLevels(BinNode<Integer> bt)
 	{
 		Queue<BinNode<Integer>> q = new Queue<BinNode<Integer>>();
@@ -80,6 +86,10 @@
 		
 	}
   
+  
+טענת כניסה: הפונקציה מקבלת עץ בינארי
+טענת יציאה: הפונקציה מורידה את העלים
+
   public static void RemoveLeaves(BinNode<Integer> bt)
   {
     if(bt != null)
