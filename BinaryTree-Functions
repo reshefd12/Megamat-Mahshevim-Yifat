@@ -416,7 +416,30 @@ public static int Sum(BinNode<Integer> head)
 		return true;
 	}
 
-  
+// טענת כניסה: מקבל עץ בינארי
+// טענת יציאה: ממיין את העץ כך שמכל צומת הבן השמאלי תמיד יהיה גדול מהימני
+	public static void SortTreeLeftRight(BinNode<Integer> head) {
+		if (head.getRight() != null && head.getLeft() != null) {
+			if (head.getRight().getValue() > head.getLeft().getValue()) {
+				int temp = head.getRight().getValue();
+				head.getRight().setValue(head.getLeft().getValue());
+				head.getLeft().setValue(temp);
+			}
+			SortTreeLeftRight(head.getLeft());
+			SortTreeLeftRight(head.getRight());
+		}
+		if (head.getRight() == null && head.getLeft() != null) {
+			SortTreeLeftRight(head.getLeft());
+		}
+		if (head.getLeft() == null && head.getRight() != null) {
+			SortTreeLeftRight(head.getRight());
+		}else {
+			return;
+		}
+
+	}
+
+}
   
   
   
