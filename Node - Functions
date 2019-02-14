@@ -114,9 +114,143 @@ public static Node<Integer> bubbleSort(Node<Integer> First)
           	return A;
    	}
   
+    public static Node<Integer> subtracLists(Node<Integer> head1, Node<Integer> head2) 
+    {
+          	Node<Integer> head = new Node<Integer>(0);
+          	Node<Integer> ist = head;
+          	Node<Integer> ist1 = head1;
+          	Node<Integer> ist2 = head2;
+          	head = ist1;
+          	while (ist1.hasNext()) 
+           {
+                 	ist1 = ist1.getNext();
+          	}
+          	ist1.setNext(ist2);
+          	return head;
+   	}
+ 
+    public static Node<Integer> newN(Node<Integer> head1, Node<Integer> head2) 
+    {
+          	Node<Integer> head = new Node<Integer>(head1.getValue() + head2.getValue());
+          	Node<Integer> ist = head;
+          	Node<Integer> ist1 = head1;
+          	Node<Integer> ist2 = head2;
+          	int sum = 0;
+          	ist1=ist1.getNext();
+          	ist2=ist2.getNext();
+          	while (ist1 != null && ist2 != null) 
+           {
+                 	sum = 0;
+                 	sum += ist1.getValue();
+                 	ist1 = ist1.getNext();
+                 	sum += ist2.getValue();
+                 	ist2 = ist2.getNext();
+                 	Node<Integer> summ = new Node<Integer>(sum);
+                 	ist.setNext(summ);
+                 	ist = ist.getNext();
+          	}
+          	if (ist1 != null) 
+           {
+                 	while (ist1 != null) 
+                  {
+                       	sum = 0;
+                       	sum += ist1.getValue();
+                       	ist1 = ist1.getNext();
+                       	Node<Integer> sum1 = new Node<Integer>(sum);
+                       	ist.setNext(sum1);
+                       	ist = ist.getNext();
+                 	}
+          	}
+         
+         if (ist2 != null) 
+         {
+                 	while (ist2 != null) 
+                  {
+                       	sum = 0;
+                       	sum += ist2.getValue();
+                       	ist2 = ist2.getNext();
+                       	Node<Integer> sum2 = new Node<Integer>(sum);
+                       	ist.setNext(sum2);
+                       	ist = ist.getNext();
+                 	}
+          	}
+          	return head;
+   	}
+
+    public static Node<Integer> subtracLists(Node<Integer> head1, Node<Integer> head2) 
+    {
+          	Node<Integer> head = new Node<Integer>(0);
+          	boolean f = true;
+          	Node<Integer> ist = head;
+          	Node<Integer> ist1 = head1;
+          	Node<Integer> ist2 = head2;
+          	while (ist1 != null && ist2 != null && f) 
+           {
+                 	boolean a = true;
+                 	int n = ist1.getValue();
+                 	while (ist2 != null && a) 
+                  {
+                       	if (ist2.getValue() != n) 
+                        {
+                              	ist2 = ist2.getNext();
+                       	} else 
+                        {
+                              	a = false;
+                       	}
+                 	}
+                 	if (a) 
+                  {
+                       	ist.setValue(n);
+                       	f = false;
+                 	} else 
+                  {
+                       	ist1 = ist1.getNext();
+                       	ist2 = head2;
+                 	}
+          	}
+          	ist1 = ist1.getNext();
+          	ist2 = head2;
+          	while (ist1 != null && ist2 != null) 
+           {
+                 	boolean a = true;
+                 	int n = ist1.getValue();
+                 	while (ist2 != null && a) 
+                  {
+                       	if (ist2.getValue() != n) 
+                        {
+                              	ist2 = ist2.getNext();
+                       	} else 
+                        {
+                              	a = false;
+                       	}
+                 	}
+                 	if (a) 
+                  {
+                       	Node<Integer> istHead = new Node<Integer>(ist1.getValue());
+                       	ist.setNext(istHead);
+                       	ist = ist.getNext();
+                 	}
+                 	ist1 = ist1.getNext();
+                 	ist2 = head2;
+          	}
+          	return head;
+   	}
   
-  
-  
+    public static int due(Node<Integer> head) {
+          	int sum = head.getValue();
+          	int count = 0;
+          	Node<Integer> N = head;
+ 
+          	while (N != null) {
+                 	N = N.getNext();
+                 	count++;
+                 	if (count % 2 == 0 && N != null) {
+                       	sum += N.getValue();
+                 	}
+          	}
+          	return sum;
+   	}
+
   
   
   
