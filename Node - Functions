@@ -100,7 +100,19 @@ public static Node<Integer> bubbleSort(Node<Integer> First)
           	System.out.println();
    	}
     
-    
+    public static Node<Integer> build(int n) 
+    {
+          	Random rnd = new Random();
+          	Node<Integer> A = new Node<Integer>(rnd.nextInt(10) + 1);
+          	Node<Integer> pos = A;
+          	for (int i = 0; i < n - 1; i++) 
+           {
+                 	Node<Integer> r = new Node(rnd.nextInt(10) + 1);
+                 	pos.setNext(r);
+                 	pos = pos.getNext();
+          	}
+          	return A;
+   	}
   
   
   
