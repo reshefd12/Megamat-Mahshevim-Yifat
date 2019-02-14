@@ -278,18 +278,7 @@ public static int Sum(BinNode<Integer> head)
 		}
 	}
 
-  	public static void build(BinNode<Integer> st, int count)
-	{
-		int val=count;
-		if(count>0) 
-		{
-			st.setLeft(new BinNode<Integer> (rnd.nextInt((10)+1)));
-			build(st.getLeft(),--val);
-			st.setRight(new BinNode<Integer> (rnd.nextInt((10)+1)));
-			build(st.getRight(),--count);
-		}
-	}
-
+  
   	public static boolean full(BinNode<Integer> st, int count, int depth) {
 		
 		boolean fromL=false, fromR=false;
