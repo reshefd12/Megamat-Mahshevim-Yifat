@@ -219,7 +219,48 @@ public static int Sum(BinNode<Integer> head)
 		return Math.max(head.getValue(), temp);
 	}
   
-  
+  public static int sumLevel(BinNode<Integer> st, int num) 
+  {
+		int n = num;
+		int L=0;
+		int R=0;
+		if(num==0) {
+			return st.getValue();
+		}
+		if(st.hasLeft()&&num>0) {
+			L=sumLevel(st.getLeft(),--num);
+		}
+		if(st.hasRight()&&n>0) {
+			R=sumLevel(st.getRight(),--n);
+		}
+	return R+L;
+   }
+
+   public static boolean similar (BinNode<Integer>a ,BinNode<Integer>b) 
+   {
+	boolean L = true;
+	boolean R = true;
+		
+		if(a==null&&b!=null||a!=null&&b==null) 
+		{
+			return false;
+		}
+		
+		if(a!=null&&b!=null){
+			if(a.getValue()!=b.getValue()) {
+				return false;}
+			}
+		if(a.hasLeft()&&b.hasLeft()) 
+		{
+			L=similar(a.getLeft(),b.getLeft());
+		}
+		
+		if(a.hasRight()&&b.hasRight()) {
+			R=similar(a.getRight(),b.getRight());
+		}
+		
+	return L&&R;
+}
   
   
   
