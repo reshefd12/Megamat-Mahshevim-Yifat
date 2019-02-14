@@ -1,12 +1,18 @@
 
 
 
+טענת כניסה: הפונקציה מקבלת עץ בינארי
+טענת יציאה: מחזירה boolean אם הוא עלה או לא
 
   public static boolean isLeaf(BinNode<Integer> bt)
 	{
 		return !bt.hasLeft() && !bt.hasRight();
 	}
   
+  
+טענת כניסה: הפונקציה מקבלת עץ בינארי
+טענת יציאה: מחזירה ערך אינטג'רי של גובה המסלול המקסימלי
+
   public static int depth(BinNode<Integer> bt)
 	{
 		
@@ -27,6 +33,8 @@
 		return 1 + Math.max(depth(bt.getLeft()),depth(bt.getRight()));
 			
 	}
+
+
 
   public static boolean foseries(BinNode<Integer> bt,int prev)
 	{
@@ -111,7 +119,7 @@ public static int interCount(BinNode<Integer> root)
 {
         	if (root == null)
                     	return 0;
-return 1 + leafCount(root.getLeft()) + leafCount(root.getRight());
+return 1 + interCount(root.getLeft()) + interCount(root.getRight());
 }
 
 public static int interSum(BinNode<Integer> root)
