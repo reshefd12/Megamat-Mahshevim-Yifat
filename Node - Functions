@@ -1,0 +1,150 @@
+
+
+
+
+public static Node<Integer> bubbleSort(Node<Integer> First)
+ 	{
+       	Node <Integer> temp = First;
+       	Integer value;
+       	
+       	for(int i=0; i<getLength(First)-1; i++)
+       	{
+ 	       	while (temp.getNext() != null)
+            	{
+ 	if(temp.getValue().compareTo(temp.getNext().getValue()) > 0)
+                 	{
+                       	value = temp.getValue();
+                       	temp.setValue(temp.getNext().getValue());
+                       	temp.getNext().setValue(value);
+                 	}
+                 	temp = temp.getNext();
+            	}
+            	temp = First;
+       	}
+       	return First;
+       	
+ 	}
+  
+  public static int getLength (Node<Integer> First)
+ 	{
+       	int len = 1;
+       	Node<Integer> temp = First;
+       	
+       	while(temp.getNext() != null)
+       	{
+            	len++;
+            	temp = temp.getNext();
+       	}
+       	
+       	return len;
+ 	}
+  
+  public static int sumList(Node<Integer> n) 
+  {
+          	if (n.getNext() == null)
+                 	return n.getValue();
+          	
+          	return n.getValue() + sumList(n.getNext());
+  }
+  
+  public static boolean checkOrder(Node<Integer> n) 
+  {
+          	if (n.getNext() == null)
+                 	return true;
+          	
+          	else if (n.getNext().getValue() > n.getValue())
+                 	return checkOrder(n.getNext());
+          	
+          	return false;
+  }
+  
+  public static void cleanDuplicates(Node<Integer> head) 
+  {
+                 	
+          	Node<Integer> n = head;
+          	Node<Integer> m = n;
+          	int value;
+          	
+          	while (n.hasNext()) 
+            {
+                 	
+                 	value=n.getValue();
+                 	int size = getLength(n);
+                 	
+                 	while( size>1 && n!=null && n.hasNext())
+                 	{
+                       	if(value == n.getNext().getValue())
+                       	{
+                              	n.setNext(n.getNext().getNext());
+                       	}
+                       	n = n.getNext();
+                       	size--;
+                 	}
+                 	
+                 	if(m.hasNext())
+                 	{
+                       	n=m.getNext();
+                       	m=m.getNext();
+                 	}
+          	}  	
+   	}
+    
+    public static void print(Node<Integer> head) 
+    {
+          	Node<Integer> N = head;
+          	while (N != null) 
+            {
+                 	System.out.print(N.getValue() + ", ");
+                 	N = N.getNext();
+          	}
+          	System.out.println();
+   	}
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
