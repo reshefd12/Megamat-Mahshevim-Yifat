@@ -1,8 +1,8 @@
 
 
 
-טענת כניסה: הפונקציה מקבלת עץ בינארי
-טענת יציאה: מחזירה בוליאן אם הוא עלה או לא
+//טענת כניסה: הפונקציה מקבלת עץ בינארי
+//טענת יציאה: מחזירה בוליאן אם הוא עלה או לא
 
   public static boolean isLeaf(BinNode<Integer> bt)
 	{
@@ -10,8 +10,8 @@
 	}
   
   
-טענת כניסה: הפונקציה מקבלת עץ בינארי
-טענת יציאה: מחזירה ערך אינטג'רי של גובה המסלול המקסימלי
+//טענת כניסה: הפונקציה מקבלת עץ בינארי
+//טענת יציאה: מחזירה ערך אינטג'רי של גובה המסלול המקסימלי
 
   public static int depth(BinNode<Integer> bt)
 	{
@@ -35,8 +35,8 @@
 	}
 
 
-טענת כניסה: הפונקציה מקבלת עץ בינארי ואת הערך של איבר הראש
-טענת יציאה: מחזירה בוליאן אם יש סדרה חשבונית עולה באחד מראש העץ עד העלה
+//טענת כניסה: הפונקציה מקבלת עץ בינארי ואת הערך של איבר הראש
+//טענת יציאה: מחזירה בוליאן אם יש סדרה חשבונית עולה באחד מראש העץ עד העלה
 
   public static boolean foseries(BinNode<Integer> bt,int prev)
 	{
@@ -63,8 +63,8 @@
 	}
   
   
-טענת כניסה: הפונקציה מקבלת עץ בינארי
-טענת יציאה: הפונקציה מדפיסה את העץ לפי רמות
+//טענת כניסה: הפונקציה מקבלת עץ בינארי
+//טענת יציאה: הפונקציה מדפיסה את העץ לפי רמות
 
   public static void printByLevels(BinNode<Integer> bt)
 	{
@@ -87,8 +87,8 @@
 	}
   
   
-טענת כניסה: הפונקציה מקבלת עץ בינארי
-טענת יציאה: הפונקציה מורידה את העלים
+//טענת כניסה: הפונקציה מקבלת עץ בינארי
+//טענת יציאה: הפונקציה מורידה את העלים
 
   public static void RemoveLeaves(BinNode<Integer> bt)
   {
@@ -107,6 +107,10 @@
        }
   }
 
+
+//טענת כניסה: הפונקציה מקבלת עץ בינארי
+//טענת יציאה: הפונקציה מחזירה את כמות העלים
+
   public static int leafCount(BinNode<Integer> root)
 {
         	if (root == null)
@@ -115,6 +119,10 @@
                     	return 1;
         	return leafCount(root.getLeft()) + leafCount(root.getRight());
 }
+
+
+//טענת כניסה: הפונקציה מקבלת עץ בינארי
+//טענת יציאה: הפונקציה מחזירה את סכום ערכי העלים
 
 public static int leafSum(BinNode<Integer> root)
 {
@@ -125,6 +133,10 @@ public static int leafSum(BinNode<Integer> root)
         	return leafSum(root.getLeft()) + leafSum(root.getRight());
 }
 
+
+//טענת כניסה: הפונקציה מקבלת עץ בינארי
+//טענת יציאה: הפונקציה מחזירה את מספר הצמתים
+
 public static int interCount(BinNode<Integer> root)
 {
         	if (root == null)
@@ -132,12 +144,20 @@ public static int interCount(BinNode<Integer> root)
 return 1 + interCount(root.getLeft()) + interCount(root.getRight());
 }
 
+
+//טענת כניסה: הפונקציה מקבלת עץ בינארי
+//טענת יציאה: הפונקציה מחזירה את סכום ערכי הצמתים
+
 public static int interSum(BinNode<Integer> root)
 {
         	if (root == null)
                     	return 0;
 return root.getValue() + interSum(root.getLeft()) + interSum(root.getRight());
 }
+
+
+//טענת כניסה: הפונקציה מקבלת עץ בינארי
+//טענת יציאה: הפונקציה מחזירה את מספר הבנים הימניים
 
 public static int numOfRightSon (BinNode<Integer> root)
 {
@@ -149,6 +169,10 @@ public static int numOfRightSon (BinNode<Integer> root)
         	return 1 + numOfRightSon (root.getLeft()) + numOfRightSon (root.getRight());
 }
 
+
+//טענת כניסה: הפונקציה מקבלת עץ בינארי
+//טענת יציאה: הפונקציה מחזירה את מספר הבנים השמאליים
+
 public static int numOfLeftSon (BinNode<Integer> root)
 {
         	if (root == null || isLeaf(root))
@@ -157,6 +181,10 @@ public static int numOfLeftSon (BinNode<Integer> root)
                     	return numOfRightSon (root.getRight());
 return 1 + numOfRightSon (root.getLeft()) + numOfRightSon (root.getRight());
 }
+
+
+//טענת כניסה: הפונקציה מקבלת עץ בינארי
+//טענת יציאה: הפונקציה מחזירה את סכום ערכי הבנים השמאליים
 
 public static int sumOfLeftSon (BinNode<Integer> root)
 {
@@ -167,6 +195,10 @@ public static int sumOfLeftSon (BinNode<Integer> root)
 return root.getValue() + numOfRightSon (root.getLeft()) + numOfRightSon (root.getRight());
 }
 
+
+//טענת כניסה: הפונקציה מקבלת עץ בינארי
+//טענת יציאה: הפונקציה מחזירה את סכום ערכי הבנים הימניים
+
 public static int sumOfRightSon (BinNode<Integer> root)
 {
         	if (root == null || isLeaf(root))
@@ -175,6 +207,10 @@ public static int sumOfRightSon (BinNode<Integer> root)
                     	return numOfRightSon (root.getLeft());
         	return root.getValue() + numOfRightSon (root.getLeft()) + numOfRightSon (root.getRight());
 }
+
+
+//טענת כניסה: הפונקציה מקבלת עץ בינארי
+//טענת יציאה: הפונקציה מחזירה את מספר הילדים היחידים - שאין להם אחד
 
 public static int numOfIndivSon (BinNode<Integer> root)
 {
@@ -187,6 +223,10 @@ public static int numOfIndivSon (BinNode<Integer> root)
         	return numOfIndivSon(root.getLeft()) + numOfIndivSon(root.getRight());
 }
 
+
+//טענת כניסה: הפונקציה מקבלת עץ בינארי
+//טענת יציאה: הפונקציה מחזירה את מספר הצמתים שיש להם 2 ילדים
+
 public static int twoSons (BinNode<Integer> root) 
 {
         	if (root == null || isLeaf(root))
@@ -196,6 +236,10 @@ public static int twoSons (BinNode<Integer> root)
         	return twoSons(root.getLeft()) + twoSons(root.getRight());
 }
  
+ 
+//טענת כניסה: הפונקציה מקבלת עץ בינארי
+//טענת יציאה: הפונקציה מחזירה את סכום ערכי כל העץ
+
 public static int Sum(BinNode<Integer> head) 
 {
 
@@ -209,8 +253,11 @@ public static int Sum(BinNode<Integer> head)
 		}
 		return 0;
 	}
-  טענת כניסה: מקבל עץ בינארי
-  טענת יציאה: מחזיר את הערך המקסימלי בעץ
+	
+	
+  //טענת כניסה: מקבל עץ בינארי
+  //טענת יציאה: מחזיר את הערך המקסימלי בעץ
+  
   public static int LargestInTree(BinNode<Integer> head) {
 		if (head == null) {
 			return Integer.MIN_VALUE;
@@ -219,48 +266,7 @@ public static int Sum(BinNode<Integer> head)
 		return Math.max(head.getValue(), temp);
 	}
   
-  public static int sumLevel(BinNode<Integer> st, int num) 
-  {
-		int n = num;
-		int L=0;
-		int R=0;
-		if(num==0) {
-			return st.getValue();
-		}
-		if(st.hasLeft()&&num>0) {
-			L=sumLevel(st.getLeft(),--num);
-		}
-		if(st.hasRight()&&n>0) {
-			R=sumLevel(st.getRight(),--n);
-		}
-	return R+L;
-   }
-
-   public static boolean similar (BinNode<Integer>a ,BinNode<Integer>b) 
-   {
-	boolean L = true;
-	boolean R = true;
-		
-		if(a==null&&b!=null||a!=null&&b==null) 
-		{
-			return false;
-		}
-		
-		if(a!=null&&b!=null){
-			if(a.getValue()!=b.getValue()) {
-				return false;}
-			}
-		if(a.hasLeft()&&b.hasLeft()) 
-		{
-			L=similar(a.getLeft(),b.getLeft());
-		}
-		
-		if(a.hasRight()&&b.hasRight()) {
-			R=similar(a.getRight(),b.getRight());
-		}
-		
-	return L&&R;
-}
+  
   
   
   
