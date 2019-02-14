@@ -266,6 +266,10 @@ public static int Sum(BinNode<Integer> head)
 		return Math.max(head.getValue(), temp);
 	}
   
+  
+//טענת כניסה: הפונקציה מקבלת ראש של עץ ואת עומק העץ שרוצים לבנות
+//טענת יציאה: הפונקציה בונה עץ בינארי מלא בעומק שנתנו
+
   	public static void build(BinNode<Integer> st, int count)
 	{
 		int val=count;
@@ -278,7 +282,10 @@ public static int Sum(BinNode<Integer> head)
 		}
 	}
 
-  
+
+//טענת כניסה: פונקציה מקבלת עץ, מספר לבדיקה=לעומק החוליה, ועומק העץ. להציב קאונט=1 אם העומק סופר גם את השורש קאונט=0 אם הוא לא
+//טענת יציאה: פונקציה מחזירה טרו אם העץ הוא עץ מלא ופולס אם הוא ריק
+
   	public static boolean full(BinNode<Integer> st, int count, int depth) {
 		
 		boolean fromL=false, fromR=false;
@@ -304,6 +311,11 @@ public static int Sum(BinNode<Integer> head)
 		
 		return fromL&&fromR;
 	}
+	
+	
+//טענת כניסה: הפונקציה מקבלת עץ
+//טענת יציאה: הפונקציה מחזירה את הערך הכי גדול בעץ
+
 	public static int biggest(BinNode<Integer> st) 
 	{
 		int l = 0, r = 0;
@@ -320,6 +332,10 @@ public static int Sum(BinNode<Integer> head)
 
 	}
 	
+	
+//טענת כניסה: הפונקציה מקבלת 2 עצים בינארים
+//טענת יציאה: הפונקציה מחזירה טרו אם העצים זהים לחלוטין(גם בערכים וגם במבנה) ופולס אם לא
+
 	public static boolean similar (BinNode<Integer>a ,BinNode<Integer>b) 
 	{
 		boolean L = true;
@@ -347,6 +363,9 @@ public static int Sum(BinNode<Integer> head)
 		}
   
   
+//טענת כניסה: הפונקציה מקבלת עץ ומספר שמייצג רמה בעץ
+//טענת יציאה: הפונקציה מחזירה את הסכום של כל הערכים ברמה זו
+
   	public static int sumLevel(BinNode<Integer> st, int num) 
 	{
 		int n = num;
@@ -368,6 +387,10 @@ public static int Sum(BinNode<Integer> head)
 		}
 	return R+L;
 	}
+
+
+//טענת כניסה: הפעולה מקבלת עץ בינארי
+//טענת יציאה: הפעולה מחזירה האם הענף השמאלי ביותר של העץ זהה לענף הימני ביותר
 
   `	public static boolean isLeftBalancedRight(BinNode<Integer> root
 		BinNode<Integer> right = root;
