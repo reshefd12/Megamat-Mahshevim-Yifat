@@ -266,7 +266,18 @@ public static int Sum(BinNode<Integer> head)
 		return Math.max(head.getValue(), temp);
 	}
   
-  
+  	public static void build(BinNode<Integer> st, int count)
+	{
+		int val=count;
+		if(count>0) 
+		{
+			st.setLeft(new BinNode<Integer> (rnd.nextInt((10)+1)));
+			build(st.getLeft(),--val);
+			st.setRight(new BinNode<Integer> (rnd.nextInt((10)+1)));
+			build(st.getRight(),--count);
+		}
+	}
+
   
   
   
