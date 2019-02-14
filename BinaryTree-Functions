@@ -209,8 +209,15 @@ public static int Sum(BinNode<Integer> head)
 		}
 		return 0;
 	}
-  
-  
+  טענת כניסה: מקבל עץ בינארי
+  טענת יציאה: מחזיר את הערך המקסימלי בעץ
+  public static int LargestInTree(BinNode<Integer> head) {
+		if (head == null) {
+			return Integer.MIN_VALUE;
+		}
+		int temp = Math.max(LargestInTree(head.getLeft()), LargestInTree(head.getRight()));
+		return Math.max(head.getValue(), temp);
+	}
   
   
   
