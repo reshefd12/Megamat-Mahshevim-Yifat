@@ -1,0 +1,209 @@
+
+
+
+
+  public static boolean isLeaf(BinNode<Integer> bt)
+	{
+		return !bt.hasLeft() && !bt.hasRight();
+	}
+  
+  public static int depth(BinNode<Integer> bt)
+	{
+		
+		if(bt == null) 
+			return 0;
+					
+		if(!bt.hasLeft())
+			return 1 + depth(bt.getRight());
+		
+		if(!bt.hasRight())
+			return 1 + depth(bt.getLeft());
+		
+		if(isLeaf(bt))
+		{
+			return 2;
+		}
+		
+		return 1 + Math.max(depth(bt.getLeft()),depth(bt.getRight()));
+			
+	}
+
+  public static boolean foseries(BinNode<Integer> bt,int prev)
+	{
+		boolean fromLeft = false, fromRight = false;
+		
+		if(isLeaf(bt))
+			return true;
+		
+		if(bt.hasLeft() && (prev + 1 == bt.getLeft().getValue()))
+		{
+			prev = bt.getLeft().getValue();
+			fromLeft = foseries(bt.getLeft(),prev);
+		}
+		
+		
+		if(bt.hasRight() && (prev + 1 == bt.getRight().getValue()))
+		{
+			prev = bt.getRight().getValue();
+			fromRight = foseries(bt.getRight(), prev);
+		}
+		
+		return fromLeft || fromRight;
+		
+	}
+  
+  public static void printByLevels(BinNode<Integer> bt)
+	{
+		Queue<BinNode<Integer>> q = new Queue<BinNode<Integer>>();
+		q.insert(bt);
+		
+		while(!q.isEmpty())
+		{
+			BinNode<Integer> current = q.remove();
+			
+			System.out.print(current.getValue() + ", ");
+			
+			if(current.hasLeft())
+				q.insert(current.getLeft());
+			
+			if(current.hasRight())
+				q.insert(current.getRight());
+		}
+		
+	}
+  
+  public static void RemoveLeaves(BinNode<Integer> bt)
+  {
+    if(bt != null)
+       {
+        if(bt.hasLeft() && isLeaf(bt.getLeft()))
+               bt.setLeft(null);
+                    	
+       	if(bt.hasRight() && isLeaf(bt.getRight()))
+               bt.setRight(null);
+        else
+         {
+         RemoveLeaves(bt.getLeft());
+         RemoveLeaves(bt.getRight());
+         }
+       }
+  }
+
+  public static int leafCount(BinNode<Integer> root)
+{
+        	if (root == null)
+                	return 0;
+        	if (isLeaf(root))
+                    	return 1;
+        	return leafCount(root.getLeft()) + leafCount(root.getRight());
+}
+
+public static int leafSum(BinNode<Integer> root)
+{
+        	if (root == null)
+                    	return 0;
+        	if (isLeaf(root))
+                    	return root.getValue();
+        	return leafSum(root.getLeft()) + leafSum(root.getRight());
+}
+
+public static int interCount(BinNode<Integer> root)
+{
+        	if (root == null)
+                    	return 0;
+return 1 + leafCount(root.getLeft()) + leafCount(root.getRight());
+}
+
+public static int interSum(BinNode<Integer> root)
+{
+        	if (root == null)
+                    	return 0;
+return root.getValue() + interSum(root.getLeft()) + interSum(root.getRight());
+}
+
+public static int numOfRightSon (BinNode<Integer> root)
+{
+        	if (root == null || isLeaf(root))
+                    	return 0;
+        	if(!root.hasRight())
+                    	return numOfRightSon (root.getLeft());
+ 
+        	return 1 + numOfRightSon (root.getLeft()) + numOfRightSon (root.getRight());
+}
+
+public static int numOfLeftSon (BinNode<Integer> root)
+{
+        	if (root == null || isLeaf(root))
+        	        	return 0;
+        	if(!root.hasLeft())
+                    	return numOfRightSon (root.getRight());
+return 1 + numOfRightSon (root.getLeft()) + numOfRightSon (root.getRight());
+}
+
+public static int sumOfLeftSon (BinNode<Integer> root)
+{
+        	if (root == null || isLeaf(root))
+        	        	return 0;
+        	if(!root.hasLeft())
+                    	return numOfRightSon (root.getRight());
+return root.getValue() + numOfRightSon (root.getLeft()) + numOfRightSon (root.getRight());
+}
+
+public static int sumOfRightSon (BinNode<Integer> root)
+{
+        	if (root == null || isLeaf(root))
+        	        	return 0;
+        	if(!root.hasRight())
+                    	return numOfRightSon (root.getLeft());
+        	return root.getValue() + numOfRightSon (root.getLeft()) + numOfRightSon (root.getRight());
+}
+
+public static int numOfIndivSon (BinNode<Integer> root)
+{
+        	if (root == null || isLeaf(root))
+                    	return 0;
+        	if (root.hasLeft() && !root.hasRight())
+                    	return 1 + numOfIndivSon(root.getLeft());
+        	if (root.hasRight() && !root.hasLeft())
+                    	return 1 + numOfIndivSon(root.getRight());
+        	return numOfIndivSon(root.getLeft()) + numOfIndivSon(root.getRight());
+}
+
+public static int twoSons (BinNode<Integer> root) 
+{
+        	if (root == null || isLeaf(root))
+        	        	return 0;
+        	if (root.hasLeft() && root.hasRight())
+        	        	return 1 + twoSons(root.getLeft()) + twoSons(root.getRight());
+        	return twoSons(root.getLeft()) + twoSons(root.getRight());
+}
+ 
+public static int Sum(BinNode<Integer> head) 
+{
+
+		if (head != null) 
+    {
+			if (!head.hasLeft() && !head.hasRight()) 
+      {
+				return head.getValue();
+			}
+			return head.getValue() + Sum(head.getLeft()) + Sum(head.getRight());
+		}
+		return 0;
+	}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
