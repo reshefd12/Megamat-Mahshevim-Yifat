@@ -440,6 +440,44 @@ public static int Sum(BinNode<Integer> head)
 	}
 
 }
+
+//טענת כניסה: פעולה מקבלת שני עצים
+//טענת יציאה: הפעולה מחזירה אם שני העצים זהים בהרכב שלהם (ללא ערך
+	public static boolean SimilarTrees(BinNode<Integer> t1, BinNode<Integer> t2) {
+		boolean SimL = false;
+		boolean SimR = false;
+		//בודקת אם לשניהם אין שמאלי - הם יהיו שווים בשל זה
+		if (!t1.hasLeft() && !t2.hasLeft()) {
+			SimL = true;
+		}
+		//קריאה רקורסיבית אם יש המשך
+		if (t1.hasLeft() && t2.hasLeft()) {
+			SimL = SimilarTrees (t1.getLeft(), t2.getLeft());
+		}
+		//בודקת אם לשניהם אין ימני - הם יהיו שווים בשל זה
+		if (!t1.hasRight() && !t2.hasRight()) {
+			SimR = true;
+		}
+		//קריאה רקורסיבית אם יש המשך
+		if (t1.hasRight() && t2.hasRight()) {
+			SimR = SimilarTrees (t1.getRight(), t2.getRight());
+		}
+
+//טענת כניסה: פעולה מקבלת מספר ועץ 
+//טענת יציאה: פעולה מחזירה טרו אם המספר קיים בעץ
+	public static boolean IsNumIn (BinNode <Integer> t1, int num) {
+		//תנאי יציאה - במקרה ואין המשך יוצאים
+		if (!t1.hasLeft() && !t1.hasRight()) {
+			return false;
+		}
+		//בדיקת המספר
+		if (t1.getValue() == num) {
+			return true;
+		}
+		//קריאה רקורסיבית עם התקדמות
+		return IsNumIn (t1.getLeft(), num)&& IsNumIn (t1.getRight(), num);
+	}
+
   
   
   
