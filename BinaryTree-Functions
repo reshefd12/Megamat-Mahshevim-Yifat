@@ -466,18 +466,27 @@ public static int Sum(BinNode<Integer> head)
 //טענת כניסה: פעולה מקבלת מספר ועץ 
 //טענת יציאה: פעולה מחזירה טרו אם המספר קיים בעץ
 	public static boolean IsNumIn (BinNode <Integer> t1, int num) {
-		//תנאי יציאה - במקרה ואין המשך יוצאים
-		if (!t1.hasLeft() && !t1.hasRight()) {
-			return false;
-		}
-		//בדיקת המספר
+		int n = t1.getValue();
+		boolean R = false;
+		boolean L = false;
+		
 		if (t1.getValue() == num) {
-			return true;
+			L = true;
 		}
-		//קריאה רקורסיבית עם התקדמות
-		return IsNumIn (t1.getLeft(), num)&& IsNumIn (t1.getRight(), num);
+		
+		if (t1.getValue() == num) {
+			R = true;
+		}
+		
+		if (t1.hasLeft()) {
+			L = IsNumIn (t1.getLeft(), num);
+		}
+		
+		if (t1.hasRight()) {
+			R = IsNumIn (t1.getRight(), num);
+		}
+		return R || L;
 	}
-
   
   
   
