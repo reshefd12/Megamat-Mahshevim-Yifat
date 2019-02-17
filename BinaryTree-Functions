@@ -518,6 +518,26 @@ public static int Sum(BinNode<Integer> head)
 		return bt;
 	}
   
-  	
+  	/**
+	 * count the num appears
+	 * @param bt: binTree
+	 * @param num: the num to count
+	 * @return the num of appears - count
+	 */
+	public static int countNumber(BinNode<Integer> bt, int num)
+	{
+		int count = 0;
+		
+		if(bt != null)
+		{
+			if(bt.getValue() == num)
+			{
+				count += 1;
+			}
+			count += countNumber(bt.getLeft(), num); //continue with the right side
+			count += countNumber(bt.getRight(), num); //continue with the right side
+		}
+		return count;
+	}
   
   
