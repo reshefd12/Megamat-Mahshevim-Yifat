@@ -464,7 +464,7 @@ public static int Sum(BinNode<Integer> head)
 		}
 
 //טענת כניסה: פעולה מקבלת מספר ועץ 
-//טענת יציאה: פעולה מחזירה טרו אם המספר קיים בעץ
+//טענת יציאה: פעולה מחזירה אמת אם המספר קיים בעץ
 	public static boolean IsNumIn (BinNode <Integer> t1, int num) {
 		int n = t1.getValue();
 		boolean R = false;
@@ -487,8 +487,37 @@ public static int Sum(BinNode<Integer> head)
 		}
 		return R || L;
 	}
+  	
+	
+	//הפעולה מקבלת עץ בינארי 
+	// הפעולה מוסיפה לכל איבר,אם אין, אח באותו ערך ומחזירה את העץ
+	public static BinNode<Integer> addBrother(BinNode<Integer> bt)
+	{
+		int num;
+		
+		if(!bt.hasLeft() && !bt.hasRight())
+			return bt;
+		
+		if(bt.hasRight() && !bt.hasLeft())
+		{
+			num = bt.getRight().getValue();
+			bt.setLeft(new BinNode<Integer>(num));
+			bt.getLeft().setValue(num);
+		}
+		
+		if(!bt.hasRight() && bt.hasLeft())
+		{
+			num = bt.getLeft().getValue();
+			bt.setRight(new BinNode<Integer>(num));
+			bt.getLeft().setValue(num);	
+			
+		}	
+			addBrother(bt.getLeft());
+			addBrother(bt.getRight());
+	
+		return bt;
+	}
   
-  
-  
+  	
   
   
